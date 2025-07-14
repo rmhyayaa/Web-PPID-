@@ -510,23 +510,25 @@ h6 {
 }
 
 .footer .social-links a {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  background-color: #708A58; /* warna kuning */
+  color: #FFF1CA; /* warna ikon */
   width: 40px;
   height: 40px;
-  border-radius: 50%;
-  border: 1px solid color-mix(in srgb, var(--default-color), transparent 50%);
-  font-size: 16px;
-  color: color-mix(in srgb, var(--default-color), transparent 30%);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   margin-right: 10px;
+  border-radius: 50%;
+  font-size: 18px;
   transition: 0.3s;
+  text-decoration: none;
 }
 
 .footer .social-links a:hover {
-  color: var(--accent-color);
-  border-color: var(--accent-color);
+  background-color: #708A58; /* warna hover kuning tua */
+  color: #2D4F2B;
 }
+
 
 .footer h4 {
   font-size: 16px;
