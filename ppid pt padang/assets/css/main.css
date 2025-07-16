@@ -311,8 +311,8 @@ margin-bottom: 30px;
 
 /* Profile Section*/
 .profil-content {
-  padding: 60px 0; /* Atas dan bawah */
-  background-color: #f9f9f9; /* Opsional, biar beda dengan footer */
+  padding: 60px 0;
+  background-color: #f9f9f9; 
 }
 
 /* Main Content */
@@ -356,6 +356,15 @@ margin-bottom: 30px;
 
 .profile-content {
     display: grid;
+    width: 100%;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 50px;
+}
+
+.profile-content-t {
+    display: grid;
+    width: 202%;
     grid-template-columns: 1fr 1fr;
     gap: 40px;
     margin-bottom: 50px;
