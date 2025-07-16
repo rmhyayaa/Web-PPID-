@@ -519,11 +519,11 @@ margin-bottom: 30px;
     grid-template-columns: 1fr 1fr;
     gap: 4rem;
     align-items: center;
-    padding: 6rem 0 2rem;
+    padding: 6rem 0 1rem;
 }
 
 .hero-title {
-    font-size: 3rem;
+    font-size: 2.8rem;
     color: white;
     margin-bottom: 1.5rem;
     line-height: 1.2;
@@ -534,6 +534,7 @@ margin-bottom: 30px;
     color: rgba(255, 255, 255, 0.9);
     margin-bottom: 2rem;
     line-height: 1.6;
+    text-align: justify;
 }
 
 .hero-buttons {
@@ -677,7 +678,7 @@ margin-bottom: 30px;
 }
 
 .service-card {
-    background: #f3f9d2;
+    background: #dff2d8;
     padding: 2.5rem;
     border-radius: 15px;
     text-align: center;
@@ -1005,7 +1006,7 @@ margin-bottom: 30px;
 
 /* Contact Form */
 .contact-form {
-    background: linear-gradient(135deg, #708A58);
+    background-color: #708A58;
     padding: 2.5rem;
     border-radius: 15px;
     box-shadow: #f4bd46;
@@ -1048,7 +1049,7 @@ margin-bottom: 30px;
 
 /* Footer */
 .footer {
-    background-color: #2D4F2B;
+    background-color: #344e41;
     color: white;
     padding: 3rem 0 1rem;
     margin-top: 50px;
@@ -1103,7 +1104,7 @@ margin-bottom: 30px;
 }
 
 .footer-rawim {
-    color: #2D4F2B;
+    color: #ffffff;
     text-align: center;
     font-weight: 500;
 }
