@@ -323,13 +323,29 @@ margin-bottom: 30px;
 .profile-header {
     text-align: center;
     margin-bottom: 50px;
+    position: relative;
 }
 
 .profile-header h1 {
     font-size: 2.5rem;
-    color: #c41e3a;
-    margin-bottom: 15px;
+    color: #ffffff;
+    margin-bottom: 5px;
+    position: relative;
+    display: inline-block;
 }
+
+.profile-header h1::after {
+    content: "";
+    position: absolute;
+    left: 50%; /* Tengah berdasarkan kontainer */
+    bottom: -10px; /* Jarak garis dari teks */
+    transform: translateX(-50%); /* Geser agar benar-benar center */
+    width: 280px;
+    height: 3px;
+    background-color: #ffffff;
+    border-radius: 2px;
+}
+
 
 .profile-header p {
     font-size: 1.1rem;
@@ -365,7 +381,7 @@ margin-bottom: 30px;
 }
 
 .highlight-box {
-    background: linear-gradient(135deg, #c41e3a 0%, #a01729 100%);
+    background-color: #dff2d8;
     color: white;
     padding: 25px;
     border-radius: 10px;
@@ -394,7 +410,7 @@ margin-bottom: 30px;
 .regulation-item {
     padding: 15px;
     border-left: 4px solid #c41e3a;
-    background: #f8f9fa;
+    background: #dff2d8;
     margin-bottom: 15px;
     border-radius: 0 10px 10px 0;
 }
@@ -409,79 +425,112 @@ margin-bottom: 30px;
     font-size: 0.9rem;
 }
 
-/* Timeline */
+.timeline-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 20px;
+  position: relative;
+}
+
+.timeline-title {
+  text-align: center;
+  color: #c41e3a;
+  margin-top: 8px;
+  margin-bottom: 2px;
+  font-size: 2rem;
+  position: relative;
+}
+
 .timeline {
-    position: relative;
-    margin: 40px 0;
+  position: relative;
+  padding: 10px 0 100px;
 }
 
 .timeline::before {
-    content: '';
-    position: absolute;
-    left: 50%;
-    top: 0;
-    bottom: 0;
-    width: 2px;
-    background: #c41e3a;
-    transform: translateX(-50%);
+  content: '';
+  position: absolute;
+  top: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 480px;
+  background: #c41e3a;
 }
 
 .timeline-item {
-    position: relative;
-    margin: 30px 0;
+  position: relative;
+  width: 100%;
+  min-height: 120px;
+  margin: 30px 0;
 }
 
 .timeline-item:nth-child(odd) .timeline-content {
-    right: 52%;
+  position: absolute;
+  right: 55%;
+  text-align: right;
 }
 
 .timeline-item:nth-child(even) .timeline-content {
-    left: 52%;
+  position: absolute;
+  left: 55%;
+  text-align: left;
 }
 
 .timeline-content {
-    position: relative;
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    width: 45%;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  width: 45%;
 }
 
 .timeline-date {
-    background: #c41e3a;
-    color: white;
-    padding: 5px 15px;
-    border-radius: 20px;
-    font-size: 0.9rem;
-    font-weight: 500;
-    display: inline-block;
-    margin-bottom: 10px;
+  background: #c41e3a;
+  color: white;
+  padding: 5px 15px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  display: inline-block;
+  margin-bottom: 10px;
 }
 
 .timeline-icon {
-    position: absolute;
-    left: 50%;
-    top: 20px;
-    transform: translateX(-50%);
-    width: 40px;
-    height: 40px;
-    background: #c41e3a;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-size: 1.2rem;
+  position: absolute;
+  left: 50%;
+  top: 1px;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 40px;
+  background: #c41e3a;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.2rem;
+  z-index: 1;
 }
 
-.profil-content .container {
-  max-width: 900px;
-  margin: auto;
-  padding: 0 20px;
-  text-align: justify;
-  line-height: 1.8;
-  font-size: 16px;
+/* Responsive */
+@media (max-width: 768px) {
+  .timeline::before {
+    left: 20px;
+    transform: none;
+  }
+
+  .timeline-item:nth-child(odd) .timeline-content,
+  .timeline-item:nth-child(even) .timeline-content {
+    position: relative !important;
+    width: 100%;
+    text-align: left;
+    margin-left: 40px;
+  }
+
+  .timeline-icon {
+    left: 0;
+    transform: none;
+  }
 }
 
 /* Hero Section */
