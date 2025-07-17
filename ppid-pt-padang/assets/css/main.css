@@ -1447,14 +1447,17 @@ margin-bottom: 30px;
   cursor: pointer;
   transition: background 0.3s;
 }
+
 .accordion-button:hover {
   background: #FFB823;
+
   color: white;
 }
 .accordion-content {
   display: none;
   margin-bottom: 16px;
 }
+
 .accordion-content .card {
   background: #FFF1CA;
   padding: 12px 16px;
@@ -1462,6 +1465,7 @@ margin-bottom: 30px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
   margin-bottom: 8px;
 }
+
 .accordion-content .card a {
   text-decoration: none;
   color: #2D4F2B;
