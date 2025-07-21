@@ -8,6 +8,31 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const counters = document.querySelectorAll('.stat-number');
+
+    counters.forEach(counter => {
+      const updateCount = () => {
+        const target = +counter.getAttribute('data-target');
+        const current = +counter.innerText;
+
+        const increment = Math.ceil(target / 100); // kecepatan naik
+
+        if (current < target) {
+          counter.innerText = current + increment;
+          setTimeout(updateCount, 20); // delay antar update
+        } else {
+          counter.innerText = target;
+        }
+      };
+
+      updateCount();
+    });
+  });
+</script>
+
 <body>
     <!-- Header -->
     <header class="header">
@@ -97,39 +122,32 @@
 
     <!-- Stats Section -->
     <section class="stats">
-        <div class="container">
-            <div class="stats-grid">
-                <div class="stat-item">
-                    <div class="stat-icon">
-                        <i class="fas fa-file-alt"></i>
-                    </div>
-                    <div class="stat-number" data-target="1250">0</div>
-                    <div class="stat-label">Dokumen Tersedia</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-icon">
-                        <i class="fas fa-users"></i>
-                    </div>
-                    <div class="stat-number" data-target="3420">0</div>
-                    <div class="stat-label">Pengunjung</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-icon">
-                        <i class="fas fa-check-circle"></i>
-                    </div>
-                    <div class="stat-number" data-target="95">0</div>
-                    <div class="stat-label">Permohonan Selesai (%)</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-icon">
-                        <i class="fas fa-clock"></i>
-                    </div>
-                    <div class="stat-number" data-target="5">0</div>
-                    <div class="stat-label">Hari Kerja</div>
-                </div>
-            </div>
+    <div class="container">
+        <div class="stats-grid">
+        <div class="stat-item">
+            <div class="stat-icon"><i class="fas fa-file-alt"></i></div>
+            <div class="stat-number" data-target="1250">0</div>
+            <div class="stat-label">Jumlah Pemohon Informasi</div>
         </div>
+        <div class="stat-item">
+            <div class="stat-icon"><i class="fas fa-check-circle"></i></div>
+            <div class="stat-number" data-target="3420">0</div>
+            <div class="stat-label">Jumlah Informasi Tersedia</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-icon"><i class="fas fa-times-circle"></i></div>
+            <div class="stat-number" data-target="95">0</div>
+            <div class="stat-label">Jumlah Informasi Ditolak</div> <!-- typo: Jumalh -->
+        </div>
+        <div class="stat-item">
+            <div class="stat-icon"><i class="fas fa-users"></i></div>
+            <div class="stat-number" data-target="65">0</div>
+            <div class="stat-label">Pengunjung</div>
+        </div>
+        </div>
+    </div>
     </section>
+
 
     <!-- Services Section -->
     <section id="layanan" class="services">
@@ -141,27 +159,43 @@
             <div class="services-grid">
                 <div class="service-card">
                     <div class="service-icon">
-                        <i class="fas fa-list"></i>
+                        <i class="fas fa-envelope-open-text"></i>
                     </div>
-                    <h3>Informasi Publik</h3>
-                    <p>Ketahui Hak Anda atas Informasi Publik: Berkala, Serta Merta, dan Setiap Saat</p>
-                    <a href="#daftar-informasi" class="service-btn">Akses Informasi</a>
+                    <h3>Layanan Permohonan Informasi</h3>
+                    <p>Ajukan Permohonan Informasi Putusan Pengadilan Tinggi Padang</p>
+                    <a href="assets/pdf/form_permintaan_informasi_manual PT PADANG.pdf" class="service-btn">Ajukan Permohonan</a>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">
-                        <i class="fas fa-briefcase"></i>
+                        <i class="fas fa-comment-dots"></i>
                     </div>
-                    <h3>Standar Pelayanan</h3>
-                    <p>Dokumen Standar Pelayanan Publik Sesuai Peraturan yang Berlaku</p>
-                    <a href="#keberatan" class="service-btn">Lihat Standar</a>
+                    <h3>Layanan Pengaduan</h3>
+                    <p>Laporkan pelanggaran atau ketidaksesuaian layanan publik secara langsung</p>
+                    <a href="#daftar-informasi" class="service-btn">Buat Pengaduan</a>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">
-                        <i class="fas fa-file-alt"></i>
+                        <i class="fas fa-folder-open"></i>
                     </div>
-                    <h3>Permohonan Salinan Putusan</h3>
-                    <p>Ajukan Permohonan Putusan Pengadilan Tinggi Padang</p>
-                    <a href="https://docs.google.com/forms/d/e/1FAIpQLScYyJ-5TJZgUmuWG1JkIPW_GuQyH91mwYhd8Gsdz06HpATEJg/viewform" class="service-btn">Kirim Permohonan</a>
+                    <h3>Layanan Kepaniteraan</h3>
+                    <p>Informasi layanan terkait administrasi perkara dan penanganan berkas</p>
+                    <a href="#keberatan" class="service-btn">Lihat Layanan Panitera</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <h3>Layanan Kesekretariatan</h3>
+                    <p>Panduan layanan umum dan dukungan administrasi perkantoran</p>
+                    <a href="#keberatan" class="service-btn">Lihat Layanan Sekretariat</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-exclamation-circle"></i>
+                    </div>
+                    <h3>Layanan Keberatan atas Informasi</h3>
+                    <p>Ajukan keberatan atas informasi publik yang tidak diberikan atau ditolak</p>
+                    <a href="assets/pdf/form_pernyataan_keberatatan_manual PT PADANG.pdf" class="service-btn">Ajukan Keberatan</a>
                 </div>
             </div>
         </div>
@@ -203,8 +237,12 @@
                         <h3>Jam Layanan</h3>
                         <div class="schedule">
                             <div class="schedule-item">
-                                <span>Senin - Jumat</span>
+                                <span>Senin - Kamis</span>
                                 <span>08:00 - 16:00 WIB</span>
+                            </div>
+                            <div class="schedule-item">
+                                <span>Jumat</span>
+                                <span>07:30 - 16:00 WIB</span>
                             </div>
                             <div class="schedule-item">
                                 <span>Sabtu - Minggu</span>
@@ -262,102 +300,59 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="kontak" class="contact">
-        <div class="container">
-            <div class="contact-grid">
-                <div class="contact-info">
-                    <h2>Hubungi Kami</h2>
-                    <p>Ada pertanyaan? Jangan ragu untuk menghubungi tim PPID kami</p>
-                    <div class="contact-items">
-                        <div class="contact-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <div>
-                                <h4>Alamat</h4>
-                                <p>Jl. Jenderal Sudirman No. 54<br>Padang, Sumatera Barat 25129</p>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-phone"></i>
-                            <div>
-                                <h4>Telepon</h4>
-                                <p>(0751) 30554 / 23495</p>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-envelope"></i>
-                            <div>
-                                <h4>Email</h4>
-                                <p>ppid@pt-padang.go.id</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="contact-form">
-                    <form>
-                        <div class="form-group">
-                            <label for="name">Nama Lengkap</label>
-                            <input type="text" id="name" name="name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="subject">Subjek</label>
-                            <input type="text" id="subject" name="subject" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Pesan</label>
-                            <textarea id="message" name="message" rows="5" required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Kirim Pesan</button>
-                    </form>
-                </div>
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-content">
+            <!-- Kontak -->
+            <div class="footer-section">
+                <h4>Kontak</h4>
+                <ul>
+                    <li><i class="fas fa-map-marker-alt"></i> Jl. Jenderal Sudirman No. 54, Padang</li>
+                    <li><i class="fas fa-phone"></i> (0751) 30554 / 23495</li>
+                    <li><i class="fas fa-envelope"></i> ppid@pt-padang.go.id</li>
+                </ul>
             </div>
-        </div>
-    </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>PPID Pengadilan Tinggi Padang</h3>
-                    <p>Pejabat Pengelola Informasi dan Dokumentasi yang bertugas melayani permintaan informasi publik sesuai dengan peraturan perundang-undangan.</p>
-                </div>
-                <div class="footer-section">
-                    <h4>Menu Utama</h4>
-                    <ul>
-                        <li><a href="#home">Beranda</a></li>
-                        <li><a href="#profil">Profil PPID</a></li>
-                        <li><a href="#layanan">Layanan</a></li>
-                        <li><a href="#laporan">Laporan</a></li>
-                        <li><a href="#kontak">Kontak</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Layanan</h4>
-                    <ul>
-                        <li><a href="../Standar-Pelayanan/prosedur-permohonan-informasi.html">Prosedur Permohonan Informasi</a></li>
-                        <li><a href="../Standar-Pelayanan/prosedur-pengajuan-keberatan.html">Prosedur Pengajuan Keberatan</a></li>
-                        <li><a href="../Standar-Pelayanan/prosedur-sengketa-informasi.html">Prosedur Sengketa Informasi</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Kontak</h4>
-                    <ul>
-                        <li><i class="fas fa-map-marker-alt"></i> Jl. Jenderal Sudirman No. 54, Padang</li>
-                        <li><i class="fas fa-phone"></i> (0751) 30554 / 23495</li>
-                        <li><i class="fas fa-envelope"></i> ppid@pt-padang.go.id</li>
-                    </ul>
+            <!-- Maps -->
+            <div class="footer-section">
+                <h4>Alamat</h4>
+                <div class="footer-maps">
+                    <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6374.973124204373!2d100.3590962!3d-0.9368789!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2fd4b92f7f846135%3A0x867b3c7b7e0d15b6!2sPengadilan%20Tinggi%20Sumatera%20Barat!5e0!3m2!1sid!2sid!4v1721575447652!5m2!1sid!2sid"  
+                    width="100%" 
+                    height="250" 
+                    style="border:0; border-radius: 8px;" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 PPID Pengadilan Tinggi Padang. All rights reserved.</p>
+
+            <!-- Media Sosial -->
+            <div class="footer-section">
+                <h4>Media Sosial</h4>
+                <div class="social-icons-grid">
+                    <a href="https://www.instagram.com/ptpadang?igsh=MW1mb3NjOTZoN3c2bw==" target="_blank" class="social-icon-circle">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://youtube.com/@pengadilantinggipadang665?si=rjkmPV-ZhZtDZ60-" target="_blank" class="social-icon-circle">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                    <a href="https://www.facebook.com/share/15uxgkedfY/" target="_blank" class="social-icon-circle">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+                </div>
             </div>
         </div>
-    </footer>
+
+        <!-- Copyright -->
+        <div class="footer-bottom">
+            <p>&copy; 2025 PPID Pengadilan Tinggi Padang. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
 
     <!-- Scroll to Top Button -->
     <button class="scroll-top" id="scrollTop">
